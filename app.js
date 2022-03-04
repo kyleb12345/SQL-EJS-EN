@@ -1,12 +1,13 @@
 require('dotenv').config();
 const express = require("express");
-var mysql = require('mysql');
+const helmet = require("helmet");
+const mysql = require('mysql');
 
 
 const app = express();
 
 app.set('view engine', 'ejs');
-
+app.use(helmet());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
 
